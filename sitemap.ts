@@ -1,0 +1,2 @@
+import type {MetadataRoute} from 'next'; import {products} from '@/data/products';
+export default function sitemap():MetadataRoute.Sitemap{const base=process.env.NEXT_PUBLIC_SITE_URL||'https://sasha-footwear.vercel.app';return[{url:base,changeFrequency:'weekly',priority:1},{url:`${base}/products`,changeFrequency:'weekly',priority:.9},...products.map(p=>({url:`${base}/products/${p.slug}`,changeFrequency:'weekly' as const,priority:.8}))]}

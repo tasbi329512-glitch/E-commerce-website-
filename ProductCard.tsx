@@ -1,0 +1,2 @@
+import Image from 'next/image'; import Link from 'next/link'; import type {Product} from '@/data/products';
+export default function ProductCard({p}:{p:Product}){return <Link className="productCard" href={`/products/${p.slug}`}><div className="productImage">{p.badge&&<span className="badge">{p.badge}</span>}<Image src={p.image} alt={`${p.name} ${p.category} footwear by Sasha`} fill sizes="(max-width: 700px) 50vw, 25vw"/></div><div className="productMeta"><span>{p.category}</span><h3>{p.name}</h3><p>PKR {p.price.toLocaleString()}</p></div></Link>}
